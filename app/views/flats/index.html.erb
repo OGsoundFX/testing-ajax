@@ -1,0 +1,17 @@
+<div class="container">
+  <ul>
+    <% @flats.each do |flat| %>
+      <li>
+        <div>
+          <%= flat.name %>
+          <%= flat.location %>
+          <% if flat.booked %>
+            <i class='fa-solid fa-bookmark'></i>
+          <% else %>
+            <i class='fa-regular fa-bookmark'></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
