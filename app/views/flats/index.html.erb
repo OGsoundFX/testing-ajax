@@ -1,14 +1,14 @@
-<div class="container">
-  <ul>
+<div class="container my-5">
+  <ul style="width: 600px; border: solid grey 3px; padding: 0 24px; list-style-type: none;">
     <% @flats.each do |flat| %>
       <li>
-        <div>
-          <%= flat.name %>
+        <div data-controller="bookmark" class="d-flex justify-content-between">
+          <%= flat.name %>&nbsp&nbsp&nbsp/&nbsp&nbsp
           <%= flat.location %>
-          <% if flat.booked %>
-            <i class='fa-solid fa-bookmark'></i>
-          <% else %>
-            <i class='fa-regular fa-bookmark'></i>
+          <%= link_to bookmark_path(id: flat.id), style: "color: grey", data: { action: "click->bookmark#bookmark"}, remote: true do %>
+            <div data-bookmark-target="icon" >
+              <%= render "flats/booked", flat: flat %>
+            </div>
           <% end %>
         </div>
       </li>

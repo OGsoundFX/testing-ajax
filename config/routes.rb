@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "flats#index"
   resources :flats, only: :index
+  get "bookmark", to: "flats#bookmark"
 end
